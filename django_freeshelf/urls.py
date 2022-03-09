@@ -16,12 +16,15 @@ Including another URLconf
 from django.contrib import admin
 #from books import views
 from django.urls import path, include 
+from books.views import *
 
 #from django_freeshelf.views import home
 
 urlpatterns = [
+    path('', book_list, name='book_list'),
+    path('accounts/', include('registration.backends.simple.urls')),
     path("admin/", admin.site.urls),
-    path('', include('books.urls')),
+    #path('', include('books.urls')),
 ]
 
 
